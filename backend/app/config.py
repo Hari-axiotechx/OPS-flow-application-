@@ -10,7 +10,7 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 class Settings(BaseSettings):
     model_config = SettingsConfigDict(env_file=".env", extra="ignore")
 
-    DATABASE_URL: str = "postgresql+psycopg2://opsflow:opsflow@db:5432/opsflow"
+    DATABASE_URL: str   # no default, so it fails loudly if the variable is missing
 
     # Signs session tokens. Change this to a long random string in production.
     TOKEN_SECRET: str = "change-me-before-deploying"
